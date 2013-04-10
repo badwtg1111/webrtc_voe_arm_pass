@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/182028/trunk/src/build/android/pylib/instrumentation
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/175441/trunk/src/build/android/pylib/instrumentation/__init__.py
+END
+apk_info.py
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/175702/trunk/src/build/android/pylib/instrumentation/apk_info.py
+END
+run_java_tests.py
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/182028/trunk/src/build/android/pylib/instrumentation/run_java_tests.py
+END

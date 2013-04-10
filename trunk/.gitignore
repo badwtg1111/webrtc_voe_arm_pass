@@ -30,14 +30,14 @@
 .project
 .pydevproject
 .settings
-/build
+#/build
 /chromium_deps
 /google_apis/build
 /gyp-mac-tool
 /Makefile
 /out
 /resources
-/testing
+#/testing
 /third_party/android_testrunner
 /third_party/android_tools
 /third_party/asan
