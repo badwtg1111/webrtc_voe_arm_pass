@@ -1,0 +1,1 @@
+cmd_trunk/webrtc/voice_engine/out/Debug/obj.target/webrtc/modules/libwebrtc_i420.a := rm -f trunk/webrtc/voice_engine/out/Debug/obj.target/webrtc/modules/libwebrtc_i420.a && ar crsT trunk/webrtc/voice_engine/out/Debug/obj.target/webrtc/modules/libwebrtc_i420.a trunk/webrtc/voice_engine/out/Debug/obj.target/webrtc_i420/webrtc/modules/video_coding/codecs/i420/main/source/i420.o

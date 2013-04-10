@@ -1,0 +1,1 @@
+cmd_trunk/webrtc/voice_engine/out/Debug/obj.target/webrtc/modules/libPCM16B.a := rm -f trunk/webrtc/voice_engine/out/Debug/obj.target/webrtc/modules/libPCM16B.a && ar crsT trunk/webrtc/voice_engine/out/Debug/obj.target/webrtc/modules/libPCM16B.a trunk/webrtc/voice_engine/out/Debug/obj.target/PCM16B/webrtc/modules/audio_coding/codecs/pcm16b/pcm16b.o

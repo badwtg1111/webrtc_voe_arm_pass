@@ -1,0 +1,1 @@
+cmd_trunk/webrtc/voice_engine/out/Debug/obj.target/webrtc/modules/libwebrtc_opus.a := rm -f trunk/webrtc/voice_engine/out/Debug/obj.target/webrtc/modules/libwebrtc_opus.a && ar crsT trunk/webrtc/voice_engine/out/Debug/obj.target/webrtc/modules/libwebrtc_opus.a trunk/webrtc/voice_engine/out/Debug/obj.target/webrtc_opus/webrtc/modules/audio_coding/codecs/opus/opus_interface.o
