@@ -2766,7 +2766,7 @@
               ['_toolset=="target"', {
 				'include_dirs':[
 #			      '/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include/',
-				  '/phone-2.9/include',
+#				  '/phone-2.9/include',
 				],
                 'cflags': [
 				  '--sysroot=<(sysroot)',

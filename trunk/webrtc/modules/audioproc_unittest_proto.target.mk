@@ -108,8 +108,7 @@ INCS_Debug := \
 	-I. \
 	-I$(obj)/gen/protoc_out \
 	-Ithird_party/protobuf \
-	-Ithird_party/protobuf/src \
-	-I/phone-2.9/include
+	-Ithird_party/protobuf/src
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -198,8 +197,7 @@ INCS_Release := \
 	-I. \
 	-I$(obj)/gen/protoc_out \
 	-Ithird_party/protobuf \
-	-Ithird_party/protobuf/src \
-	-I/phone-2.9/include
+	-Ithird_party/protobuf/src
 
 OBJS := \
 	$(obj).target/$(TARGET)/gen/protoc_out/webrtc/audio_processing/unittest.pb.o

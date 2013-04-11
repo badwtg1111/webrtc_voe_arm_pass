@@ -105,8 +105,7 @@ INCS_Debug := \
 	-Iwebrtc/modules/audio_coding/codecs/ilbc/interface \
 	-Iwebrtc/modules/audio_coding/codecs/isac/main/interface \
 	-Iwebrtc/modules/audio_coding/codecs/cng/include \
-	-Itesting/gtest/include \
-	-I/phone-2.9/include
+	-Itesting/gtest/include
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -214,8 +213,7 @@ INCS_Release := \
 	-Iwebrtc/modules/audio_coding/codecs/ilbc/interface \
 	-Iwebrtc/modules/audio_coding/codecs/isac/main/interface \
 	-Iwebrtc/modules/audio_coding/codecs/cng/include \
-	-Itesting/gtest/include \
-	-I/phone-2.9/include
+	-Itesting/gtest/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/modules/audio_coding/neteq/test/NETEQTEST_CodecClass.o \

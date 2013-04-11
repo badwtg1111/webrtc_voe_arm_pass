@@ -84,8 +84,7 @@ INCS_Debug := \
 	-Iwebrtc/modules/audio_coding/codecs/isac/main/test \
 	-Iwebrtc/modules/audio_coding/codecs/isac/main/interface \
 	-Iwebrtc/common_audio/signal_processing/include \
-	-Iwebrtc/modules/audio_coding/codecs/isac/main/util \
-	-I/phone-2.9/include
+	-Iwebrtc/modules/audio_coding/codecs/isac/main/util
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -172,8 +171,7 @@ INCS_Release := \
 	-Iwebrtc/modules/audio_coding/codecs/isac/main/test \
 	-Iwebrtc/modules/audio_coding/codecs/isac/main/interface \
 	-Iwebrtc/common_audio/signal_processing/include \
-	-Iwebrtc/modules/audio_coding/codecs/isac/main/util \
-	-I/phone-2.9/include
+	-Iwebrtc/modules/audio_coding/codecs/isac/main/util
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/modules/audio_coding/codecs/isac/main/test/SwitchingSampRate/SwitchingSampRate.o \

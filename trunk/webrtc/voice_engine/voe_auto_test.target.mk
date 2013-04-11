@@ -98,8 +98,7 @@ INCS_Debug := \
 	-Itesting/gtest/include \
 	-Itesting/gmock/include \
 	-Ithird_party/google-gflags/gen/arch/linux/arm/include \
-	-Ithird_party/google-gflags/src \
-	-I/phone-2.9/include
+	-Ithird_party/google-gflags/src
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -200,8 +199,7 @@ INCS_Release := \
 	-Itesting/gtest/include \
 	-Itesting/gmock/include \
 	-Ithird_party/google-gflags/gen/arch/linux/arm/include \
-	-Ithird_party/google-gflags/src \
-	-I/phone-2.9/include
+	-Ithird_party/google-gflags/src
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/voice_engine/test/auto_test/automated_mode.o \

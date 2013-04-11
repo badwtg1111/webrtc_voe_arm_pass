@@ -88,8 +88,7 @@ INCS_Debug := \
 	-Iwebrtc/modules/audio_coding/neteq4/interface \
 	-Iwebrtc/modules/audio_coding/neteq4/test \
 	-Ithird_party/google-gflags/gen/arch/linux/arm/include \
-	-Ithird_party/google-gflags/src \
-	-I/phone-2.9/include
+	-Ithird_party/google-gflags/src
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -180,8 +179,7 @@ INCS_Release := \
 	-Iwebrtc/modules/audio_coding/neteq4/interface \
 	-Iwebrtc/modules/audio_coding/neteq4/test \
 	-Ithird_party/google-gflags/gen/arch/linux/arm/include \
-	-Ithird_party/google-gflags/src \
-	-I/phone-2.9/include
+	-Ithird_party/google-gflags/src
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/modules/audio_coding/neteq4/tools/neteq_rtpplay.o

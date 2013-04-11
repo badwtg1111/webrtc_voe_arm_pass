@@ -3,4 +3,4 @@
 export builddir_name ?= trunk/webrtc/voice_engine/out
 .PHONY: all
 all:
-	$(MAKE) -C ../.. voice_engine_core voe_cmd_test voice_engine_unittests pstn_cmd_test voe_auto_test
+	$(MAKE) -C ../.. voice_engine_core pstn_cmd_test voe_cmd_test voice_engine_unittests voe_auto_test

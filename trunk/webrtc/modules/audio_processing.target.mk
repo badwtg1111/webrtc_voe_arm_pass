@@ -99,8 +99,7 @@ INCS_Debug := \
 	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include \
 	-I$(obj)/gen/protoc_out \
 	-Ithird_party/protobuf \
-	-Ithird_party/protobuf/src \
-	-I/phone-2.9/include
+	-Ithird_party/protobuf/src
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -202,8 +201,7 @@ INCS_Release := \
 	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include \
 	-I$(obj)/gen/protoc_out \
 	-Ithird_party/protobuf \
-	-Ithird_party/protobuf/src \
-	-I/phone-2.9/include
+	-Ithird_party/protobuf/src
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/modules/audio_processing/aec/echo_cancellation.o \

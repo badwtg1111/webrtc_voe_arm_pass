@@ -91,8 +91,7 @@ INCS_Debug := \
 	-Itesting/gtest/include \
 	-Iwebrtc/system_wrappers/interface \
 	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include \
-	-Iwebrtc/modules/utility/interface \
-	-I/phone-2.9/include
+	-Iwebrtc/modules/utility/interface
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -186,8 +185,7 @@ INCS_Release := \
 	-Itesting/gtest/include \
 	-Iwebrtc/system_wrappers/interface \
 	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include \
-	-Iwebrtc/modules/utility/interface \
-	-I/phone-2.9/include
+	-Iwebrtc/modules/utility/interface
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/modules/audio_coding/main/test/ACMTest.o \

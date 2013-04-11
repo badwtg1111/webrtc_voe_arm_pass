@@ -81,8 +81,7 @@ INCS_Debug := \
 	-Iwebrtc \
 	-I. \
 	-I. \
-	-Iwebrtc/modules/audio_coding/codecs/pcm16b/include \
-	-I/phone-2.9/include
+	-Iwebrtc/modules/audio_coding/codecs/pcm16b/include
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -166,8 +165,7 @@ INCS_Release := \
 	-Iwebrtc \
 	-I. \
 	-I. \
-	-Iwebrtc/modules/audio_coding/codecs/pcm16b/include \
-	-I/phone-2.9/include
+	-Iwebrtc/modules/audio_coding/codecs/pcm16b/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/modules/audio_coding/codecs/pcm16b/pcm16b.o

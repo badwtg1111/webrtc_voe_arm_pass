@@ -85,8 +85,7 @@ INCS_Debug := \
 	-I. \
 	-Iwebrtc/test \
 	-Iwebrtc/common_audio/signal_processing/include \
-	-Itesting/gtest/include \
-	-I/phone-2.9/include
+	-Itesting/gtest/include
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -174,8 +173,7 @@ INCS_Release := \
 	-I. \
 	-Iwebrtc/test \
 	-Iwebrtc/common_audio/signal_processing/include \
-	-Itesting/gtest/include \
-	-I/phone-2.9/include
+	-Itesting/gtest/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/common_audio/signal_processing/real_fft_unittest.o \

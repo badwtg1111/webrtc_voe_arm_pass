@@ -85,8 +85,7 @@ INCS_Debug := \
 	-Iwebrtc/system_wrappers/interface \
 	-Iwebrtc/test \
 	-Iwebrtc/modules/rtp_rtcp/interface \
-	-Iwebrtc/modules/interface \
-	-I/phone-2.9/include
+	-Iwebrtc/modules/interface
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -174,8 +173,7 @@ INCS_Release := \
 	-Iwebrtc/system_wrappers/interface \
 	-Iwebrtc/test \
 	-Iwebrtc/modules/rtp_rtcp/interface \
-	-Iwebrtc/modules/interface \
-	-I/phone-2.9/include
+	-Iwebrtc/modules/interface
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/modules/rtp_rtcp/test/testFec/test_fec.o

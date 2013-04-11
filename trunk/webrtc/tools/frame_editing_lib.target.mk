@@ -83,8 +83,7 @@ INCS_Debug := \
 	-I. \
 	-Iwebrtc/common_video/interface \
 	-Iwebrtc/common_video/jpeg/include \
-	-Iwebrtc/common_video/libyuv/include \
-	-I/phone-2.9/include
+	-Iwebrtc/common_video/libyuv/include
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -170,8 +169,7 @@ INCS_Release := \
 	-I. \
 	-Iwebrtc/common_video/interface \
 	-Iwebrtc/common_video/jpeg/include \
-	-Iwebrtc/common_video/libyuv/include \
-	-I/phone-2.9/include
+	-Iwebrtc/common_video/libyuv/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/tools/frame_editing/frame_editing_lib.o

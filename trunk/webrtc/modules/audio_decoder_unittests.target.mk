@@ -103,8 +103,7 @@ INCS_Debug := \
 	-Iwebrtc/system_wrappers/interface \
 	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include \
 	-Itesting/gtest/include \
-	-Iwebrtc/common_audio/resampler/include \
-	-I/phone-2.9/include
+	-Iwebrtc/common_audio/resampler/include
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -210,8 +209,7 @@ INCS_Release := \
 	-Iwebrtc/system_wrappers/interface \
 	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include \
 	-Itesting/gtest/include \
-	-Iwebrtc/common_audio/resampler/include \
-	-I/phone-2.9/include
+	-Iwebrtc/common_audio/resampler/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/modules/audio_coding/neteq4/audio_decoder_impl.o \

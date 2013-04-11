@@ -83,8 +83,7 @@ INCS_Debug := \
 	-I. \
 	-Iwebrtc/tools/frame_analyzer \
 	-Ithird_party/libyuv/include \
-	-Ithird_party/libyuv \
-	-I/phone-2.9/include
+	-Ithird_party/libyuv
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -170,8 +169,7 @@ INCS_Release := \
 	-I. \
 	-Iwebrtc/tools/frame_analyzer \
 	-Ithird_party/libyuv/include \
-	-Ithird_party/libyuv \
-	-I/phone-2.9/include
+	-Ithird_party/libyuv
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/tools/frame_analyzer/frame_analyzer.o

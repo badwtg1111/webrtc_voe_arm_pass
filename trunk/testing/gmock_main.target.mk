@@ -70,8 +70,7 @@ CFLAGS_CC_Debug := \
 
 INCS_Debug := \
 	-Itesting/gmock/include \
-	-Itesting/gtest/include \
-	-I/phone-2.9/include
+	-Itesting/gtest/include
 
 DEFS_Release := \
 	'-D_FILE_OFFSET_BITS=64' \
@@ -143,8 +142,7 @@ CFLAGS_CC_Release := \
 
 INCS_Release := \
 	-Itesting/gmock/include \
-	-Itesting/gtest/include \
-	-I/phone-2.9/include
+	-Itesting/gtest/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/testing/gmock/src/gmock_main.o

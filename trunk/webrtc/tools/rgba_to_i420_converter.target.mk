@@ -82,8 +82,7 @@ INCS_Debug := \
 	-I. \
 	-I. \
 	-Ithird_party/libyuv/include \
-	-Ithird_party/libyuv \
-	-I/phone-2.9/include
+	-Ithird_party/libyuv
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -168,8 +167,7 @@ INCS_Release := \
 	-I. \
 	-I. \
 	-Ithird_party/libyuv/include \
-	-Ithird_party/libyuv \
-	-I/phone-2.9/include
+	-Ithird_party/libyuv
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/tools/converter/converter.o \

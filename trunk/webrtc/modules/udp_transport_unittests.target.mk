@@ -87,8 +87,7 @@ INCS_Debug := \
 	-Iwebrtc/modules/udp_transport/interface \
 	-Iwebrtc/modules/interface \
 	-Itesting/gtest/include \
-	-Itesting/gmock/include \
-	-I/phone-2.9/include
+	-Itesting/gmock/include
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -178,8 +177,7 @@ INCS_Release := \
 	-Iwebrtc/modules/udp_transport/interface \
 	-Iwebrtc/modules/interface \
 	-Itesting/gtest/include \
-	-Itesting/gmock/include \
-	-I/phone-2.9/include
+	-Itesting/gmock/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/modules/udp_transport/source/udp_transport_unittest.o \

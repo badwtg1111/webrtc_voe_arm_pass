@@ -86,8 +86,7 @@ INCS_Debug := \
 	-Iwebrtc/modules/audio_coding/neteq4/tools \
 	-Iwebrtc/test \
 	-Itesting/gmock/include \
-	-Itesting/gtest/include \
-	-I/phone-2.9/include
+	-Itesting/gtest/include
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -176,8 +175,7 @@ INCS_Release := \
 	-Iwebrtc/modules/audio_coding/neteq4/tools \
 	-Iwebrtc/test \
 	-Itesting/gmock/include \
-	-Itesting/gtest/include \
-	-I/phone-2.9/include
+	-Itesting/gtest/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/modules/audio_coding/neteq4/tools/input_audio_file.o \

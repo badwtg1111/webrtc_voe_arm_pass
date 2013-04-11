@@ -84,8 +84,7 @@ INCS_Debug := \
 	-I. \
 	-I. \
 	-Iwebrtc/test \
-	-Itesting/gtest/include \
-	-I/phone-2.9/include
+	-Itesting/gtest/include
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -172,8 +171,7 @@ INCS_Release := \
 	-I. \
 	-I. \
 	-Iwebrtc/test \
-	-Itesting/gtest/include \
-	-I/phone-2.9/include
+	-Itesting/gtest/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/test/testsupport/metrics/video_metrics_unittest.o

@@ -72,8 +72,7 @@ CFLAGS_CC_Debug := \
 INCS_Debug := \
 	-Ithird_party/google-gflags/gen/arch/linux/arm/include/private \
 	-Ithird_party/google-gflags/gen/arch/linux/arm/include \
-	-Ithird_party/google-gflags/src \
-	-I/phone-2.9/include
+	-Ithird_party/google-gflags/src
 
 DEFS_Release := \
 	'-D_FILE_OFFSET_BITS=64' \
@@ -147,8 +146,7 @@ CFLAGS_CC_Release := \
 INCS_Release := \
 	-Ithird_party/google-gflags/gen/arch/linux/arm/include/private \
 	-Ithird_party/google-gflags/gen/arch/linux/arm/include \
-	-Ithird_party/google-gflags/src \
-	-I/phone-2.9/include
+	-Ithird_party/google-gflags/src
 
 OBJS := \
 	$(obj).target/$(TARGET)/third_party/google-gflags/src/gflags.o \

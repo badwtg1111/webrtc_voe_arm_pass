@@ -81,8 +81,7 @@ INCS_Debug := \
 	-Iwebrtc \
 	-I. \
 	-I. \
-	-Iwebrtc/test \
-	-I/phone-2.9/include
+	-Iwebrtc/test
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -166,8 +165,7 @@ INCS_Release := \
 	-Iwebrtc \
 	-I. \
 	-I. \
-	-Iwebrtc/test \
-	-I/phone-2.9/include
+	-Iwebrtc/test
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/test/run_all_unittests.o

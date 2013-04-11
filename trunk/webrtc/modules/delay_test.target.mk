@@ -93,8 +93,7 @@ INCS_Debug := \
 	-Iwebrtc/system_wrappers/interface \
 	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include \
 	-Ithird_party/google-gflags/gen/arch/linux/arm/include \
-	-Ithird_party/google-gflags/src \
-	-I/phone-2.9/include
+	-Ithird_party/google-gflags/src
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -190,8 +189,7 @@ INCS_Release := \
 	-Iwebrtc/system_wrappers/interface \
 	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include \
 	-Ithird_party/google-gflags/gen/arch/linux/arm/include \
-	-Ithird_party/google-gflags/src \
-	-I/phone-2.9/include
+	-Ithird_party/google-gflags/src
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/modules/audio_coding/main/test/delay_test.o \

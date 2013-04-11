@@ -96,8 +96,7 @@ INCS_Debug := \
 	-Iwebrtc/common_audio/signal_processing/include \
 	-Iwebrtc/common_audio/vad/include \
 	-Iwebrtc/system_wrappers/interface \
-	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include \
-	-I/phone-2.9/include
+	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -196,8 +195,7 @@ INCS_Release := \
 	-Iwebrtc/common_audio/signal_processing/include \
 	-Iwebrtc/common_audio/vad/include \
 	-Iwebrtc/system_wrappers/interface \
-	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include \
-	-I/phone-2.9/include
+	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/modules/audio_coding/main/source/acm_amr.o \

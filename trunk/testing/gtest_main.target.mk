@@ -69,8 +69,7 @@ CFLAGS_CC_Debug := \
 	-Wno-abi
 
 INCS_Debug := \
-	-Itesting/gtest/include \
-	-I/phone-2.9/include
+	-Itesting/gtest/include
 
 DEFS_Release := \
 	'-D_FILE_OFFSET_BITS=64' \
@@ -141,8 +140,7 @@ CFLAGS_CC_Release := \
 	-Wno-abi
 
 INCS_Release := \
-	-Itesting/gtest/include \
-	-I/phone-2.9/include
+	-Itesting/gtest/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/testing/gtest/src/gtest_main.o

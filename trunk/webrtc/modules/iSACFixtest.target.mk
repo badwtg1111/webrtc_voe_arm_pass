@@ -83,8 +83,7 @@ INCS_Debug := \
 	-I. \
 	-Iwebrtc/modules/audio_coding/codecs/isac/fix/test \
 	-Iwebrtc/modules/audio_coding/codecs/isac/fix/interface \
-	-Iwebrtc/test \
-	-I/phone-2.9/include
+	-Iwebrtc/test
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -170,8 +169,7 @@ INCS_Release := \
 	-I. \
 	-Iwebrtc/modules/audio_coding/codecs/isac/fix/test \
 	-Iwebrtc/modules/audio_coding/codecs/isac/fix/interface \
-	-Iwebrtc/test \
-	-I/phone-2.9/include
+	-Iwebrtc/test
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/modules/audio_coding/codecs/isac/fix/test/kenny.o

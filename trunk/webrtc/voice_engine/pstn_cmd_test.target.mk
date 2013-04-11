@@ -87,8 +87,7 @@ INCS_Debug := \
 	-Itesting/gtest/include \
 	-Iwebrtc/voice_engine/include \
 	-Iwebrtc/system_wrappers/interface \
-	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include \
-	-I/phone-2.9/include
+	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -178,8 +177,7 @@ INCS_Release := \
 	-Itesting/gtest/include \
 	-Iwebrtc/voice_engine/include \
 	-Iwebrtc/system_wrappers/interface \
-	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include \
-	-I/phone-2.9/include
+	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/voice_engine/test/pstn_cmd_test/voe_cmd_test.o \

@@ -81,8 +81,7 @@ INCS_Debug := \
 	-Iwebrtc \
 	-I. \
 	-I. \
-	-Ithird_party/opus/src/include \
-	-I/phone-2.9/include
+	-Ithird_party/opus/src/include
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -166,8 +165,7 @@ INCS_Release := \
 	-Iwebrtc \
 	-I. \
 	-I. \
-	-Ithird_party/opus/src/include \
-	-I/phone-2.9/include
+	-Ithird_party/opus/src/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/modules/audio_coding/codecs/opus/opus_interface.o

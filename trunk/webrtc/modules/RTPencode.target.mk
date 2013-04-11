@@ -102,8 +102,7 @@ INCS_Debug := \
 	-Iwebrtc/modules/audio_coding/codecs/ilbc/interface \
 	-Iwebrtc/modules/audio_coding/codecs/isac/main/interface \
 	-Iwebrtc/modules/audio_coding/codecs/cng/include \
-	-Iwebrtc/common_audio/vad/include \
-	-I/phone-2.9/include
+	-Iwebrtc/common_audio/vad/include
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -208,8 +207,7 @@ INCS_Release := \
 	-Iwebrtc/modules/audio_coding/codecs/ilbc/interface \
 	-Iwebrtc/modules/audio_coding/codecs/isac/main/interface \
 	-Iwebrtc/modules/audio_coding/codecs/cng/include \
-	-Iwebrtc/common_audio/vad/include \
-	-I/phone-2.9/include
+	-Iwebrtc/common_audio/vad/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/modules/audio_coding/neteq4/test/RTPencode.o

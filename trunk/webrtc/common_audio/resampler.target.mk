@@ -82,8 +82,7 @@ INCS_Debug := \
 	-I. \
 	-I. \
 	-Iwebrtc/common_audio/resampler/include \
-	-Iwebrtc/common_audio/signal_processing/include \
-	-I/phone-2.9/include
+	-Iwebrtc/common_audio/signal_processing/include
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -168,8 +167,7 @@ INCS_Release := \
 	-I. \
 	-I. \
 	-Iwebrtc/common_audio/resampler/include \
-	-Iwebrtc/common_audio/signal_processing/include \
-	-I/phone-2.9/include
+	-Iwebrtc/common_audio/signal_processing/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/common_audio/resampler/resampler.o \

@@ -82,8 +82,7 @@ INCS_Debug := \
 	-I. \
 	-I. \
 	-Iwebrtc/modules/audio_coding/codecs/cng/include \
-	-Iwebrtc/common_audio/signal_processing/include \
-	-I/phone-2.9/include
+	-Iwebrtc/common_audio/signal_processing/include
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -168,8 +167,7 @@ INCS_Release := \
 	-I. \
 	-I. \
 	-Iwebrtc/modules/audio_coding/codecs/cng/include \
-	-Iwebrtc/common_audio/signal_processing/include \
-	-I/phone-2.9/include
+	-Iwebrtc/common_audio/signal_processing/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/modules/audio_coding/codecs/cng/webrtc_cng.o \

@@ -87,8 +87,7 @@ INCS_Debug := \
 	-Iwebrtc/modules/utility/interface \
 	-Iwebrtc/modules/interface \
 	-Iwebrtc/modules/audio_coding/main/interface \
-	-Itesting/gtest/include \
-	-I/phone-2.9/include
+	-Itesting/gtest/include
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -178,8 +177,7 @@ INCS_Release := \
 	-Iwebrtc/modules/utility/interface \
 	-Iwebrtc/modules/interface \
 	-Iwebrtc/modules/audio_coding/main/interface \
-	-Itesting/gtest/include \
-	-I/phone-2.9/include
+	-Itesting/gtest/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/modules/utility/source/audio_frame_operations_unittest.o

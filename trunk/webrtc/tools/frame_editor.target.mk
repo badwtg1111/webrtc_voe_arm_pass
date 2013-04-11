@@ -80,8 +80,7 @@ CFLAGS_CC_Debug := \
 INCS_Debug := \
 	-Iwebrtc \
 	-I. \
-	-I. \
-	-I/phone-2.9/include
+	-I.
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -164,8 +163,7 @@ CFLAGS_CC_Release := \
 INCS_Release := \
 	-Iwebrtc \
 	-I. \
-	-I. \
-	-I/phone-2.9/include
+	-I.
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/tools/frame_editing/frame_editing.o

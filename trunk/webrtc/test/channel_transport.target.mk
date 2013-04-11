@@ -85,8 +85,7 @@ INCS_Debug := \
 	-I. \
 	-Itesting/gtest/include \
 	-Iwebrtc/system_wrappers/interface \
-	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include \
-	-I/phone-2.9/include
+	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -174,8 +173,7 @@ INCS_Release := \
 	-I. \
 	-Itesting/gtest/include \
 	-Iwebrtc/system_wrappers/interface \
-	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include \
-	-I/phone-2.9/include
+	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/test/channel_transport/channel_transport.o \

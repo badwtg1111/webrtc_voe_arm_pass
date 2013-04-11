@@ -89,8 +89,7 @@ INCS_Debug := \
 	-Iwebrtc/common_video/libyuv/include \
 	-Itesting/gtest/include \
 	-Iwebrtc/system_wrappers/interface \
-	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include \
-	-I/phone-2.9/include
+	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -182,8 +181,7 @@ INCS_Release := \
 	-Iwebrtc/common_video/libyuv/include \
 	-Itesting/gtest/include \
 	-Iwebrtc/system_wrappers/interface \
-	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include \
-	-I/phone-2.9/include
+	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/common_video/i420_video_frame_unittest.o \

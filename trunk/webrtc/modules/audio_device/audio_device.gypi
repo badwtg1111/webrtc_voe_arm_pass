@@ -137,6 +137,9 @@
               'defines': [
                 'LINUX_ALSA',
               ],
+			  'include_dirs':[
+				  '/phone-2.9/include',
+			  ],
               'link_settings': {
                 'libraries': [
                   '-ldl',

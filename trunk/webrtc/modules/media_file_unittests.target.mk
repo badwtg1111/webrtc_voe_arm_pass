@@ -86,8 +86,7 @@ INCS_Debug := \
 	-Iwebrtc/test \
 	-Iwebrtc/modules/media_file/interface \
 	-Iwebrtc/modules/interface \
-	-Itesting/gtest/include \
-	-I/phone-2.9/include
+	-Itesting/gtest/include
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -176,8 +175,7 @@ INCS_Release := \
 	-Iwebrtc/test \
 	-Iwebrtc/modules/media_file/interface \
 	-Iwebrtc/modules/interface \
-	-Itesting/gtest/include \
-	-I/phone-2.9/include
+	-Itesting/gtest/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/modules/media_file/source/media_file_unittest.o

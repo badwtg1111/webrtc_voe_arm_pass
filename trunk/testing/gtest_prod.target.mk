@@ -66,8 +66,7 @@ CFLAGS_CC_Debug := \
 	-Wno-deprecated \
 	-Wno-abi
 
-INCS_Debug := \
-	-I/phone-2.9/include
+INCS_Debug :=
 
 DEFS_Release := \
 	'-D_FILE_OFFSET_BITS=64' \
@@ -135,8 +134,7 @@ CFLAGS_CC_Release := \
 	-Wno-deprecated \
 	-Wno-abi
 
-INCS_Release := \
-	-I/phone-2.9/include
+INCS_Release :=
 
 OBJS :=
 

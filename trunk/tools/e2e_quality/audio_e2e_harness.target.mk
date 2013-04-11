@@ -89,8 +89,7 @@ INCS_Debug := \
 	-Iwebrtc/voice_engine/include \
 	-Itesting/gtest/include \
 	-Ithird_party/google-gflags/gen/arch/linux/arm/include \
-	-Ithird_party/google-gflags/src \
-	-I/phone-2.9/include
+	-Ithird_party/google-gflags/src
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -182,8 +181,7 @@ INCS_Release := \
 	-Iwebrtc/voice_engine/include \
 	-Itesting/gtest/include \
 	-Ithird_party/google-gflags/gen/arch/linux/arm/include \
-	-Ithird_party/google-gflags/src \
-	-I/phone-2.9/include
+	-Ithird_party/google-gflags/src
 
 OBJS := \
 	$(obj).target/$(TARGET)/tools/e2e_quality/audio/audio_e2e_harness.o

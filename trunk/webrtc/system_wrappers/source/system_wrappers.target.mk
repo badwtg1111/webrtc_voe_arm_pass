@@ -82,8 +82,7 @@ INCS_Debug := \
 	-I. \
 	-I. \
 	-Iwebrtc/system_wrappers/source/spreadsortlib \
-	-Iwebrtc/system_wrappers/interface \
-	-I/phone-2.9/include
+	-Iwebrtc/system_wrappers/interface
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -168,8 +167,7 @@ INCS_Release := \
 	-I. \
 	-I. \
 	-Iwebrtc/system_wrappers/source/spreadsortlib \
-	-Iwebrtc/system_wrappers/interface \
-	-I/phone-2.9/include
+	-Iwebrtc/system_wrappers/interface
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/system_wrappers/source/aligned_malloc.o \
