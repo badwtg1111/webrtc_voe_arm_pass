@@ -307,6 +307,10 @@ int main()
 	cmd_main();
 	
 	ThreadWrapper_Tester_StartThread();
+	for (int i=0;i< 10; i++){
+		std::cout << "main inceasing " << i << std::endl;
+		usleep(1000*1000);
+	}
 	usleep(1000 * 1000 * 5);
 	ThreadWrapper_Tester_StopThread();
 	
