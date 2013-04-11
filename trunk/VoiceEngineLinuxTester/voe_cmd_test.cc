@@ -307,6 +307,7 @@ std::string resource_path = "/tmp/";
   }
 #endif
 
+#if 0
   int colons(0);
   while (ip[j] != '\0' && j < 64 && !(colons = (ip[j++] == ':')))
     ;
@@ -315,7 +316,7 @@ std::string resource_path = "/tmp/";
     res = netw->EnableIPv6(0);
     VALIDATE;
   }
-
+#endif
   
 #ifdef DEBUG
   rPort=8500;
@@ -327,10 +328,17 @@ std::string resource_path = "/tmp/";
     rPort = 1234;
   printf("Set Send port \n");
 #endif
+  scoped_ptr<VoiceChannelTransport> voice_channel_transport(
+		  new VoiceChannelTransport(netw, chan));
 
+  printf("Set Send IP \n");
+  res = voice_channel_transport->SetSendDestination(ip, rPort);
+  VALIDATE;
+#if 0
   printf("Set Send IP \n");
   res = base1->SetSendDestination(chan, rPort, ip);
   VALIDATE;
+#endif
 
   int lPort;
 #ifdef DEBUG

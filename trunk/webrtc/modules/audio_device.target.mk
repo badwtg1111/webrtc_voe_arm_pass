@@ -62,7 +62,7 @@ CFLAGS_Debug := \
 	-Wextra \
 	-Wno-unused-parameter \
 	-Wno-missing-field-initializers \
-	--sysroot=/root/newdisk1/webrtc_no_peerconnection/trunk/arm-sysroot \
+	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc \
 	-O0 \
 	-g
 
@@ -90,7 +90,8 @@ INCS_Debug := \
 	-Iwebrtc/common_audio/resampler/include \
 	-Iwebrtc/common_audio/signal_processing/include \
 	-Iwebrtc/system_wrappers/interface \
-	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include
+	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include \
+	-I/phone-2.9/include
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -153,7 +154,7 @@ CFLAGS_Release := \
 	-Wextra \
 	-Wno-unused-parameter \
 	-Wno-missing-field-initializers \
-	--sysroot=/root/newdisk1/webrtc_no_peerconnection/trunk/arm-sysroot \
+	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc \
 	-O2 \
 	-fno-ident \
 	-fdata-sections \
@@ -183,7 +184,8 @@ INCS_Release := \
 	-Iwebrtc/common_audio/resampler/include \
 	-Iwebrtc/common_audio/signal_processing/include \
 	-Iwebrtc/system_wrappers/interface \
-	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include
+	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include \
+	-I/phone-2.9/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/modules/audio_device/audio_device_buffer.o \
@@ -227,7 +229,7 @@ LDFLAGS_Debug := \
 	-Wl,-z,noexecstack \
 	-fPIC \
 	-B$(builddir)/../../third_party/gold \
-	--sysroot=/root/newdisk1/webrtc_no_peerconnection/trunk/arm-sysroot
+	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc
 
 LDFLAGS_Release := \
 	-Wl,-z,now \
@@ -236,7 +238,7 @@ LDFLAGS_Release := \
 	-Wl,-z,noexecstack \
 	-fPIC \
 	-B$(builddir)/../../third_party/gold \
-	--sysroot=/root/newdisk1/webrtc_no_peerconnection/trunk/arm-sysroot \
+	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc \
 	-Wl,-O1 \
 	-Wl,--as-needed \
 	-Wl,--gc-sections

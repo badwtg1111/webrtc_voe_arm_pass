@@ -64,6 +64,7 @@ CFLAGS_Debug := \
 	-Wno-unused-parameter \
 	-Wno-missing-field-initializers \
 	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc \
+	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc \
 	-O0 \
 	-g
 
@@ -154,6 +155,7 @@ CFLAGS_Release := \
 	-Wno-unused-parameter \
 	-Wno-missing-field-initializers \
 	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc \
+	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc \
 	-O2 \
 	-fno-ident \
 	-fdata-sections \
@@ -220,7 +222,7 @@ LDFLAGS_Debug := \
 	-Wl,-z,noexecstack \
 	-fPIC \
 	-B$(builddir)/../../third_party/gold \
-	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc 
+	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc
 
 LDFLAGS_Release := \
 	-Wl,-z,now \

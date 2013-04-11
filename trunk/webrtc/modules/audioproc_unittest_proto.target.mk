@@ -2,25 +2,25 @@
 
 TOOLSET := target
 TARGET := audioproc_unittest_proto
-### Generated for rule webrtc_modules_modules_gyp_audioproc_unittest_proto_target_genproto:
+### Generated for rule trunk_webrtc_modules_modules_gyp_audioproc_unittest_proto_target_genproto:
 $(builddir)/pyproto/webrtc/audio_processing/unittest_pb2.py: obj := $(abs_obj)
 $(builddir)/pyproto/webrtc/audio_processing/unittest_pb2.py: builddir := $(abs_builddir)
 $(builddir)/pyproto/webrtc/audio_processing/unittest_pb2.py: TOOLSET := $(TOOLSET)
 $(builddir)/pyproto/webrtc/audio_processing/unittest_pb2.py: webrtc/modules/audio_processing/test/unittest.proto $(builddir)/protoc FORCE_DO_CMD
-	$(call do_cmd,webrtc_modules_modules_gyp_audioproc_unittest_proto_target_genproto_0)
+	$(call do_cmd,trunk_webrtc_modules_modules_gyp_audioproc_unittest_proto_target_genproto_0)
 $(obj)/gen/protoc_out/webrtc/audio_processing/unittest.pb.cc $(obj)/gen/protoc_out/webrtc/audio_processing/unittest.pb.h: $(builddir)/pyproto/webrtc/audio_processing/unittest_pb2.py
 $(obj)/gen/protoc_out/webrtc/audio_processing/unittest.pb.cc $(obj)/gen/protoc_out/webrtc/audio_processing/unittest.pb.h: ;
 
 all_deps += $(builddir)/pyproto/webrtc/audio_processing/unittest_pb2.py $(obj)/gen/protoc_out/webrtc/audio_processing/unittest.pb.cc $(obj)/gen/protoc_out/webrtc/audio_processing/unittest.pb.h
-cmd_webrtc_modules_modules_gyp_audioproc_unittest_proto_target_genproto_0 = LD_LIBRARY_PATH=$(builddir)/lib.host:$(builddir)/lib.target:$$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; cd webrtc/modules; mkdir -p $(obj)/gen/protoc_out/webrtc/audio_processing $(builddir)/pyproto/webrtc/audio_processing; "$(builddir)/protoc" "--proto_path=audio_processing/test" "audio_processing/test/unittest$(suffix $<)" "--cpp_out=$(obj)/gen/protoc_out/webrtc/audio_processing" "--python_out=$(builddir)/pyproto/webrtc/audio_processing"
-quiet_cmd_webrtc_modules_modules_gyp_audioproc_unittest_proto_target_genproto_0 = RULE webrtc_modules_modules_gyp_audioproc_unittest_proto_target_genproto_0 $@
+cmd_trunk_webrtc_modules_modules_gyp_audioproc_unittest_proto_target_genproto_0 = LD_LIBRARY_PATH=$(builddir)/lib.host:$(builddir)/lib.target:$$LD_LIBRARY_PATH; export LD_LIBRARY_PATH; cd webrtc/modules; mkdir -p $(obj)/gen/protoc_out/webrtc/audio_processing $(builddir)/pyproto/webrtc/audio_processing; "$(builddir)/protoc" "--proto_path=audio_processing/test" "audio_processing/test/unittest$(suffix $<)" "--cpp_out=$(obj)/gen/protoc_out/webrtc/audio_processing" "--python_out=$(builddir)/pyproto/webrtc/audio_processing"
+quiet_cmd_trunk_webrtc_modules_modules_gyp_audioproc_unittest_proto_target_genproto_0 = RULE trunk_webrtc_modules_modules_gyp_audioproc_unittest_proto_target_genproto_0 $@
 
-rule_webrtc_modules_modules_gyp_audioproc_unittest_proto_target_genproto_outputs := \
+rule_trunk_webrtc_modules_modules_gyp_audioproc_unittest_proto_target_genproto_outputs := \
 	$(builddir)/pyproto/webrtc/audio_processing/unittest_pb2.py \
 	$(obj)/gen/protoc_out/webrtc/audio_processing/unittest.pb.cc \
 	$(obj)/gen/protoc_out/webrtc/audio_processing/unittest.pb.h
 
-### Finished generating for rule: webrtc_modules_modules_gyp_audioproc_unittest_proto_target_genproto
+### Finished generating for rule: trunk_webrtc_modules_modules_gyp_audioproc_unittest_proto_target_genproto
 
 ### Finished generating for all rules
 
@@ -86,7 +86,7 @@ CFLAGS_Debug := \
 	-Wextra \
 	-Wno-unused-parameter \
 	-Wno-missing-field-initializers \
-	--sysroot=/root/newdisk1/webrtc_no_peerconnection/trunk/arm-sysroot \
+	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc \
 	-O0 \
 	-g
 
@@ -108,7 +108,8 @@ INCS_Debug := \
 	-I. \
 	-I$(obj)/gen/protoc_out \
 	-Ithird_party/protobuf \
-	-Ithird_party/protobuf/src
+	-Ithird_party/protobuf/src \
+	-I/phone-2.9/include
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -173,7 +174,7 @@ CFLAGS_Release := \
 	-Wextra \
 	-Wno-unused-parameter \
 	-Wno-missing-field-initializers \
-	--sysroot=/root/newdisk1/webrtc_no_peerconnection/trunk/arm-sysroot \
+	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc \
 	-O2 \
 	-fno-ident \
 	-fdata-sections \
@@ -197,7 +198,8 @@ INCS_Release := \
 	-I. \
 	-I$(obj)/gen/protoc_out \
 	-Ithird_party/protobuf \
-	-Ithird_party/protobuf/src
+	-Ithird_party/protobuf/src \
+	-I/phone-2.9/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/gen/protoc_out/webrtc/audio_processing/unittest.pb.o
@@ -209,7 +211,7 @@ all_deps += $(OBJS)
 $(OBJS): | $(builddir)/protoc
 
 # Make sure our actions/rules run before any of us.
-$(OBJS): | $(rule_webrtc_modules_modules_gyp_audioproc_unittest_proto_target_genproto_outputs)
+$(OBJS): | $(rule_trunk_webrtc_modules_modules_gyp_audioproc_unittest_proto_target_genproto_outputs)
 
 # CFLAGS et al overrides must be target-local.
 # See "Target-specific Variable Values" in the GNU Make manual.
@@ -233,10 +235,10 @@ $(obj).$(TOOLSET)/$(TARGET)/%.o: $(obj)/%.cc FORCE_DO_CMD
 # End of this set of suffix rules
 ### Rules for final target.
 # Build our special outputs first.
-$(obj).target/webrtc/modules/libaudioproc_unittest_proto.a: | $(rule_webrtc_modules_modules_gyp_audioproc_unittest_proto_target_genproto_outputs)
+$(obj).target/webrtc/modules/libaudioproc_unittest_proto.a: | $(rule_trunk_webrtc_modules_modules_gyp_audioproc_unittest_proto_target_genproto_outputs)
 
 # Preserve order dependency of special output on deps.
-$(rule_webrtc_modules_modules_gyp_audioproc_unittest_proto_target_genproto_outputs): | $(builddir)/protoc
+$(rule_trunk_webrtc_modules_modules_gyp_audioproc_unittest_proto_target_genproto_outputs): | $(builddir)/protoc
 
 LDFLAGS_Debug := \
 	-Wl,-z,now \
@@ -245,7 +247,7 @@ LDFLAGS_Debug := \
 	-Wl,-z,noexecstack \
 	-fPIC \
 	-B$(builddir)/../../third_party/gold \
-	--sysroot=/root/newdisk1/webrtc_no_peerconnection/trunk/arm-sysroot
+	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc
 
 LDFLAGS_Release := \
 	-Wl,-z,now \
@@ -254,7 +256,7 @@ LDFLAGS_Release := \
 	-Wl,-z,noexecstack \
 	-fPIC \
 	-B$(builddir)/../../third_party/gold \
-	--sysroot=/root/newdisk1/webrtc_no_peerconnection/trunk/arm-sysroot \
+	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc \
 	-Wl,-O1 \
 	-Wl,--as-needed \
 	-Wl,--gc-sections

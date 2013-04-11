@@ -19,9 +19,10 @@
 #include "webrtc/voice_engine/statistics.h"
 #include "webrtc/voice_engine/voice_engine_defines.h"
 
-class ProcessThread;
+//class ProcessThread;
 
 namespace webrtc {
+class ProcessThread;
 class CriticalSectionWrapper;
 
 namespace voe {

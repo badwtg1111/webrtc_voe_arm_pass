@@ -123,6 +123,38 @@
         'cmd_test/voe_cmd_test.cc',
       ],
     },
+    {
+      # command line test that should work on linux/mac/win
+      'target_name': 'pstn_cmd_test',
+      'type': 'executable',
+      'include_dirs':[
+#		  '/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include/',
+#	  	  '/phone-2.9/include',
+	  ],
+	  'cflags':[
+#		  '--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc',
+	      
+	  ],
+	  'linkflags':[
+#	      '-Wl,-rpath-link -Wl,/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/lib',
+#		  '--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc',
+	  ],
+	  'ldflags':[
+#		  '--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc',
+		  
+	  ],
+	  'dependencies': [
+        '<(webrtc_root)/test/test.gyp:test_support',
+        '<(DEPTH)/testing/gtest.gyp:gtest',
+        'voice_engine_core',
+        '<(webrtc_root)/system_wrappers/source/system_wrappers.gyp:system_wrappers',
+        '<(webrtc_root)/test/channel_transport.gyp:channel_transport',
+      ],
+      'sources': [
+        'pstn_cmd_test/voe_cmd_test.cc',
+        'pstn_cmd_test/tester.cc',
+      ],
+    },
   ],
   'conditions': [
     # TODO(kjellander): Support UseoFMFC on VS2010.

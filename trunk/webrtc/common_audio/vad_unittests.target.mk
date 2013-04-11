@@ -63,7 +63,7 @@ CFLAGS_Debug := \
 	-Wextra \
 	-Wno-unused-parameter \
 	-Wno-missing-field-initializers \
-	--sysroot=/root/newdisk1/webrtc_no_peerconnection/trunk/arm-sysroot \
+	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc \
 	-O0 \
 	-g
 
@@ -85,7 +85,8 @@ INCS_Debug := \
 	-I. \
 	-Iwebrtc/test \
 	-Iwebrtc/common_audio/vad/include \
-	-Itesting/gtest/include
+	-Itesting/gtest/include \
+	-I/phone-2.9/include
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -149,7 +150,7 @@ CFLAGS_Release := \
 	-Wextra \
 	-Wno-unused-parameter \
 	-Wno-missing-field-initializers \
-	--sysroot=/root/newdisk1/webrtc_no_peerconnection/trunk/arm-sysroot \
+	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc \
 	-O2 \
 	-fno-ident \
 	-fdata-sections \
@@ -173,7 +174,8 @@ INCS_Release := \
 	-I. \
 	-Iwebrtc/test \
 	-Iwebrtc/common_audio/vad/include \
-	-Itesting/gtest/include
+	-Itesting/gtest/include \
+	-I/phone-2.9/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/common_audio/vad/vad_core_unittest.o \
@@ -216,7 +218,7 @@ LDFLAGS_Debug := \
 	-Wl,-z,noexecstack \
 	-fPIC \
 	-B$(builddir)/../../third_party/gold \
-	--sysroot=/root/newdisk1/webrtc_no_peerconnection/trunk/arm-sysroot
+	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc
 
 LDFLAGS_Release := \
 	-Wl,-z,now \
@@ -225,7 +227,7 @@ LDFLAGS_Release := \
 	-Wl,-z,noexecstack \
 	-fPIC \
 	-B$(builddir)/../../third_party/gold \
-	--sysroot=/root/newdisk1/webrtc_no_peerconnection/trunk/arm-sysroot \
+	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc \
 	-Wl,-O1 \
 	-Wl,--as-needed \
 	-Wl,--gc-sections

@@ -1,7 +1,8 @@
-CC=g++
+CC=arm-linux-g++
 
-WEBRTC_SRC_ROOT_DIR=/home/oppo/Work/webrtc/trunk/third_party/webrtc/
-WEBRTC_LIB_ROOT_DIR=/home/oppo/Work/webrtc/trunk/out/Release/obj.target/third_party/webrtc/
+WEBRTC_TRUNK=/root/newdisk1/webrtc_no_peerconnection/trunk/
+WEBRTC_SRC_ROOT_DIR=/root/newdisk1/webrtc_no_peerconnection/trunk/webrtc/
+WEBRTC_LIB_ROOT_DIR=/root/newdisk1/webrtc_no_peerconnection/trunk/out/Debug/obj.target/webrtc/
 
 WEBRTC_MACROS='-DWEBRTC_SVNREVISION="n/a"' \
 	'-D_FILE_OFFSET_BITS=64' \
@@ -46,12 +47,15 @@ WEBRTC_MACROS='-DWEBRTC_SVNREVISION="n/a"' \
 	'-DDYNAMIC_ANNOTATIONS_ENABLED=0'
 
 WEBRTC_INCLUDES= \
+				-I $(WEBRTC_TRUNK) \
 				-I $(WEBRTC_SRC_ROOT_DIR) \
 				-I $(WEBRTC_SRC_ROOT_DIR)utility/source \
 				-I $(WEBRTC_SRC_ROOT_DIR)../libyuv/include \
 				-I $(WEBRTC_SRC_ROOT_DIR)modules/interface \
 				-I $(WEBRTC_SRC_ROOT_DIR)utility/interface \
 				-I $(WEBRTC_SRC_ROOT_DIR)video_engine/include \
+				-I $(WEBRTC_SRC_ROOT_DIR)voice_engine/include \
+				-I $(WEBRTC_SRC_ROOT_DIR)voice_engine \
 				-I $(WEBRTC_SRC_ROOT_DIR)system_wrappers/source \
 				-I $(WEBRTC_SRC_ROOT_DIR)modules/rtp_rtcp/source \
 				-I $(WEBRTC_SRC_ROOT_DIR)voice_engine/main/source \
@@ -73,7 +77,9 @@ WEBRTC_INCLUDES= \
 				-I $(WEBRTC_SRC_ROOT_DIR)modules/audio_coding/main/interface \
 				-I $(WEBRTC_SRC_ROOT_DIR)modules/video_coding/main/interface \
 				-I $(WEBRTC_SRC_ROOT_DIR)modules/video_render/main/interface \
+				-I $(WEBRTC_SRC_ROOT_DIR)modules/video_render/include \
 				-I $(WEBRTC_SRC_ROOT_DIR)modules/video_capture/main/interface \
+				-I $(WEBRTC_SRC_ROOT_DIR)modules/video_capture/include \
 				-I $(WEBRTC_SRC_ROOT_DIR)modules/video_render/main/interface \
 				-I $(WEBRTC_SRC_ROOT_DIR)modules/video_capture/main/interface \
 				-I $(WEBRTC_SRC_ROOT_DIR)modules/video_coding/codecs/interface \

@@ -614,9 +614,9 @@
           'linux_use_gold_flags%': 0,
           # sysroot needs to be an absolute path otherwise it generates
           # incorrect results when passed to pkg-config
-          'sysroot%': '<!(cd <(DEPTH) && pwd -P)/arm-sysroot',
+#          'sysroot%': '<!(cd <(DEPTH) && pwd -P)/arm-sysroot',
 #		   'sysroot%': '/opt/codesourcery/arm-none-linux-gnueabi/libc',
-#          'sysroot%': '/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc',
+          'sysroot%': '/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc',
         }], # OS=="linux" and target_arch=="arm" and chromeos==0
 
         ['target_arch=="mipsel"', {
@@ -2764,8 +2764,12 @@
           ['sysroot!=""', {
             'target_conditions': [
               ['_toolset=="target"', {
+				'include_dirs':[
+#			      '/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include/',
+				  '/phone-2.9/include',
+				],
                 'cflags': [
-                  '--sysroot=<(sysroot)',
+				  '--sysroot=<(sysroot)',
                 ],
                 'ldflags': [
                   '--sysroot=<(sysroot)',

@@ -23,14 +23,14 @@ $(builddir)/perf/perf_utils.py: tools/perf/perf_utils.py FORCE_DO_CMD
 	$(call do_cmd,copy)
 
 all_deps += $(builddir)/perf/perf_utils.py
-webrtc_test_test_gyp_buildbot_tests_scripts_target_copies = $(builddir)/buildbot_tests.py $(builddir)/run_audio_test.py $(builddir)/perf/__init__.py $(builddir)/perf/perf_utils.py
+trunk_webrtc_test_test_gyp_buildbot_tests_scripts_target_copies = $(builddir)/buildbot_tests.py $(builddir)/run_audio_test.py $(builddir)/perf/__init__.py $(builddir)/perf/perf_utils.py
 
 ### Rules for final target.
 # Build our special outputs first.
-$(obj).target/webrtc/test/buildbot_tests_scripts.stamp: | $(webrtc_test_test_gyp_buildbot_tests_scripts_target_copies)
+$(obj).target/webrtc/test/buildbot_tests_scripts.stamp: | $(trunk_webrtc_test_test_gyp_buildbot_tests_scripts_target_copies)
 
 # Preserve order dependency of special output on deps.
-$(webrtc_test_test_gyp_buildbot_tests_scripts_target_copies): | 
+$(trunk_webrtc_test_test_gyp_buildbot_tests_scripts_target_copies): | 
 
 $(obj).target/webrtc/test/buildbot_tests_scripts.stamp: TOOLSET := $(TOOLSET)
 $(obj).target/webrtc/test/buildbot_tests_scripts.stamp:  FORCE_DO_CMD

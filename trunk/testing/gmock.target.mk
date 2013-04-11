@@ -53,7 +53,7 @@ CFLAGS_Debug := \
 	-fPIC \
 	-Wno-format \
 	-Wno-unused-result \
-	--sysroot=/root/newdisk1/webrtc_no_peerconnection/trunk/arm-sysroot \
+	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc \
 	-O0 \
 	-g
 
@@ -71,7 +71,8 @@ CFLAGS_CC_Debug := \
 INCS_Debug := \
 	-Itesting/gmock \
 	-Itesting/gmock/include \
-	-Itesting/gtest/include
+	-Itesting/gtest/include \
+	-I/phone-2.9/include
 
 DEFS_Release := \
 	'-D_FILE_OFFSET_BITS=64' \
@@ -124,7 +125,7 @@ CFLAGS_Release := \
 	-fPIC \
 	-Wno-format \
 	-Wno-unused-result \
-	--sysroot=/root/newdisk1/webrtc_no_peerconnection/trunk/arm-sysroot \
+	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc \
 	-O2 \
 	-fno-ident \
 	-fdata-sections \
@@ -144,7 +145,8 @@ CFLAGS_CC_Release := \
 INCS_Release := \
 	-Itesting/gmock \
 	-Itesting/gmock/include \
-	-Itesting/gtest/include
+	-Itesting/gtest/include \
+	-I/phone-2.9/include
 
 OBJS := \
 	$(obj).target/$(TARGET)/testing/gmock/src/gmock-cardinalities.o \
@@ -184,7 +186,7 @@ LDFLAGS_Debug := \
 	-Wl,-z,noexecstack \
 	-fPIC \
 	-B$(builddir)/../../third_party/gold \
-	--sysroot=/root/newdisk1/webrtc_no_peerconnection/trunk/arm-sysroot
+	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc
 
 LDFLAGS_Release := \
 	-Wl,-z,now \
@@ -193,7 +195,7 @@ LDFLAGS_Release := \
 	-Wl,-z,noexecstack \
 	-fPIC \
 	-B$(builddir)/../../third_party/gold \
-	--sysroot=/root/newdisk1/webrtc_no_peerconnection/trunk/arm-sysroot \
+	--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc \
 	-Wl,-O1 \
 	-Wl,--as-needed \
 	-Wl,--gc-sections

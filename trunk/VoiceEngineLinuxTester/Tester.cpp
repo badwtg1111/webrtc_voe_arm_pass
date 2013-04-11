@@ -16,7 +16,7 @@
 #include "audio_device.h"//trunk\third_party\webrtc\modules\audio_device\include
 						//trunk\third_party\webrtc\modules\audio_device\main\interface
 #include "audio_processing.h"//trunk\third_party\webrtc\modules\audio_processing\include
-#include "cpu_wrapper.h"//trunk\third_party\webrtc\system_wrappers\interface
+//#include "cpu_wrapper.h"//trunk\third_party\webrtc\system_wrappers\interface
 #include "video_processing.h"//trunk\third_party\webrtc\modules\video_processing\main\interface
 #include "rtp_rtcp.h"//trunk\third_party\webrtc\modules\rtp_rtcp\interface
 #include "rtp_rtcp_impl.h"//trunk\third_party\webrtc\modules\rtp_rtcp\source
@@ -191,12 +191,12 @@ int main()
 			//delete deviceModule;
 		}
 
-		std::cout<<"Create CpuWrapper "<<std::endl;
-		CpuWrapper* cup_wrapper = CpuWrapper::CreateCpu();
-		if(cup_wrapper != NULL)
-		{
-			delete cup_wrapper;
-		}
+	//	std::cout<<"Create CpuWrapper "<<std::endl;
+	//	CpuWrapper* cup_wrapper = CpuWrapper::CreateCpu();
+	//	if(cup_wrapper != NULL)
+	//	{
+	//		delete cup_wrapper;
+	//	}
 
 		std::cout<<"Create ModuleRtpRtcpImpl "<<std::endl;
 		RtpRtcp::Configuration conf;
@@ -217,9 +217,11 @@ int main()
 		WebRtcAec_Init(NULL, 0, 0);
 		WebRtcAec_BufferFarend(NULL, NULL, 0);
 		WebRtcAec_Process(NULL, NULL, NULL, NULL, NULL, 0, 0, 0);
+#if 0		
 		AecConfig aecconfig;
 		WebRtcAec_set_config(NULL, aecconfig);
 		WebRtcAec_get_config(NULL, &aecconfig);
+#endif
 		WebRtcAec_get_echo_status(NULL, NULL);
 		WebRtcAec_GetMetrics(NULL, NULL);
 		WebRtcAec_GetDelayMetrics(NULL, NULL, NULL);
