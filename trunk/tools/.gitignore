@@ -9,6 +9,6 @@
 .pydevproject
 .settings
 .status_password
-/third_party/gaeunit
-/third_party/google-visualization-python
-/third_party/oauth2
+#/third_party/gaeunit
+#/third_party/google-visualization-python
+#/third_party/oauth2
