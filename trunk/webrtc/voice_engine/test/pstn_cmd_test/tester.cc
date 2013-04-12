@@ -45,7 +45,7 @@
 #include <sstream>
 #include <iostream>
 #include <unistd.h>
-
+#include <pthread.h>
 
 using namespace webrtc;
 
@@ -64,6 +64,7 @@ static bool VoEThreadFun(ThreadObj param)
 	std::cout<<s<<std::endl;
 	usleep(1000 * 1000 );
 	return true;
+//	return false; // only run once
 }
 static void ThreadWrapper_Tester_StartThread()
 {
@@ -103,10 +104,12 @@ static void ThreadWrapper_Tester_StopThread()
 	g_ptrThread = NULL;
 
 	tmpThread->SetNotAlive();
+#if 1
 	if (tmpThread->Stop())
 	{
 		delete tmpThread;
 	}
+#endif
 	g_ThreadID = 0;
 
 	std::cout<<__FUNCTION__<<" End"<<std::endl;
@@ -315,6 +318,5 @@ int main()
 	ThreadWrapper_Tester_StopThread();
 	
 	std::cout<<"Test end "<<std::endl;	
-	
 	return ret;
 }
