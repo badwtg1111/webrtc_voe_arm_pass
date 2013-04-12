@@ -70,7 +70,7 @@
 /tools/python
 /tools/valgrind
 /tools/win
-/webrtc/supplement.gypi
+#/webrtc/supplement.gypi
 /webrtc/video_engine/test/android/bin
 /webrtc/video_engine/test/android/gen
 /webrtc/video_engine/test/android/libs
