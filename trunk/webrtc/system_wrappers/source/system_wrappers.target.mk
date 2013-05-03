@@ -34,7 +34,6 @@ DEFS_Debug := \
 	'-DENABLE_PRINTING=1' \
 	'-DENABLE_CAPTIVE_PORTAL_DETECTION=1' \
 	'-DENABLE_MANAGED_USERS=1' \
-	'-DWEBRTC_LOGGING' \
 	'-DWEBRTC_ARCH_ARM' \
 	'-DWEBRTC_LINUX' \
 	'-DWEBRTC_THREAD_RR' \
@@ -116,7 +115,6 @@ DEFS_Release := \
 	'-DENABLE_PRINTING=1' \
 	'-DENABLE_CAPTIVE_PORTAL_DETECTION=1' \
 	'-DENABLE_MANAGED_USERS=1' \
-	'-DWEBRTC_LOGGING' \
 	'-DWEBRTC_ARCH_ARM' \
 	'-DWEBRTC_LINUX' \
 	'-DWEBRTC_THREAD_RR' \
@@ -186,7 +184,7 @@ OBJS := \
 	$(obj).target/$(TARGET)/webrtc/system_wrappers/source/event_tracer.o \
 	$(obj).target/$(TARGET)/webrtc/system_wrappers/source/file_impl.o \
 	$(obj).target/$(TARGET)/webrtc/system_wrappers/source/list_no_stl.o \
-	$(obj).target/$(TARGET)/webrtc/system_wrappers/source/logging.o \
+	$(obj).target/$(TARGET)/webrtc/system_wrappers/source/logging_no_op.o \
 	$(obj).target/$(TARGET)/webrtc/system_wrappers/source/map.o \
 	$(obj).target/$(TARGET)/webrtc/system_wrappers/source/rw_lock.o \
 	$(obj).target/$(TARGET)/webrtc/system_wrappers/source/rw_lock_generic.o \
@@ -196,8 +194,7 @@ OBJS := \
 	$(obj).target/$(TARGET)/webrtc/system_wrappers/source/tick_util.o \
 	$(obj).target/$(TARGET)/webrtc/system_wrappers/source/thread.o \
 	$(obj).target/$(TARGET)/webrtc/system_wrappers/source/thread_posix.o \
-	$(obj).target/$(TARGET)/webrtc/system_wrappers/source/trace_impl.o \
-	$(obj).target/$(TARGET)/webrtc/system_wrappers/source/trace_posix.o
+	$(obj).target/$(TARGET)/webrtc/system_wrappers/source/trace_impl_no_op.o
 
 # Add to the list of files we specially track dependencies for.
 all_deps += $(OBJS)

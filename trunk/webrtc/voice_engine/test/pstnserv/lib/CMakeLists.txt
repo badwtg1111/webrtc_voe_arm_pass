@@ -1,0 +1,28 @@
+#FIND_PACKAGE(MEDIASTREAMER REQUIRED)
+#IF(MEDIASTREAMER_FOUND)
+#	FIND_LIBRARY(MEDIASTREAMER_LIBRARY NAMES mediastreamer ortp gsm ogg speex speexdsp
+#			PATHS /usr/lib "/phone/lib"   )
+	
+
+
+	LINK_DIRECTORIES(/phone/lib)
+	AUX_SOURCE_DIRECTORY(. LIBPSTNSERV_SRC_LIST)
+	
+	INCLUDE_DIRECTORIES(/phone/include /usr/local/arm/4.4.1/include)
+	INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/include)
+	ADD_LIBRARY(pstnserv SHARED ${LIBPSTNSERV_SRC_LIST})
+	
+#	MESSAGE(STATUS "${MEDIASTREAMER_INCLUDE_DIR}")
+	TARGET_LINK_LIBRARIES(pstnserv mediastreamer ortp gsm ogg speex 
+									speexdsp pthread)
+#	MESSAGE(STATUS "${MEDIASTREAMER_LIBRARY}")
+	
+
+	SET_TARGET_PROPERTIES(pstnserv PROPERTIES VERSION 3.7 SOVERSION 3)
+
+	INSTALL(TARGETS pstnserv
+		LIBRARY DESTINATION lib)
+	INSTALL(FILES ${PROJECT_SOURCE_DIR}/include/mymediastream.h 
+				${PROJECT_SOURCE_DIR}/include/padtophone.h 
+				DESTINATION include/pstnserv)
+#ENDIF(MEDIASTREAMER_FOUND)

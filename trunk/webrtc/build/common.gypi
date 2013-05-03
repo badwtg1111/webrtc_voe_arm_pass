@@ -111,7 +111,7 @@
         'include_internal_video_render%': 0,
         'include_video_engine_file_api%': 0,
         'enable_protobuf%': 1,
-        'enable_tracing%': 1,
+        'enable_tracing%': 0,
         'include_tests%': 1,
 
         # TODO(andrew): For now, disable the Chrome plugins, which causes a
