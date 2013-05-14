@@ -200,7 +200,107 @@
 		'pstnserv/lib/padtophone.c',
       ],
     },
+    {
+      # command line test that should work on linux/mac/win
+      'target_name': 'pstn_serv_handaer',
+      'type': 'executable',
+      'include_dirs':[
+#		  '/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include/',
+#	  	  '/phone-2.9/include',
+	  	  '/phone/include',
+	  	  './pstnserv/include/',
+	  ],
+	  'cflags':[
+#		  '--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc',
+	      
+	  ],
+	  'linkflags':[
+#	      '-Wl,-rpath-link -Wl,/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/lib',
+#		  '--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc',
+	  ],
+	  'ldflags':[
+#		  '--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc',
+		  '-L/phone/lib', 
+	  ],
+	  'libraries':[
+		  '-logg',
+		  '-lspeexdsp',
+	  	  '-lspeex',
+		  '-lortp',
+		  '-lgsm',
+		  '-lmediastreamer',
+	  ],
+	  'dependencies': [
+#        '<(webrtc_root)/test/test.gyp:test_support',
+#        '<(DEPTH)/testing/gtest.gyp:gtest',
+#        'voice_engine_core',
+         '<(webrtc_root)/system_wrappers/source/system_wrappers.gyp:system_wrappers',
+#        '<(webrtc_root)/test/channel_transport.gyp:channel_transport',
+      ],
+      'sources': [
+        'pstnserv/app/PSTNserver.cpp',
+        'pstnserv/include/mymediastream.h',
+		'pstnserv/include/padtophone.h',
+		'pstnserv/lib/mediastream.c',
+		'pstnserv/lib/padtophone.c',
+      ],
+    },
+    {
+      # command line test that should work on linux/mac/win
+      'target_name': 'phone_serv_handaer',
+      'type': 'executable',
+      'include_dirs':[
+#		  '/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include/',
+#	  	  '/phone-2.9/include',
+	  	  '/phone/include',
+	  	  './pstn_serv_handaer',
+	  ],
+	  'cflags':[
+#		  '--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc',
+	      
+	  ],
+	  'linkflags':[
+#	      '-Wl,-rpath-link -Wl,/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/lib',
+#		  '--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc',
+	  ],
+	  'ldflags':[
+#		  '--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc',
+		  '-L/phone/lib', 
+	  ],
+	  'libraries':[
+		  '-logg',
+		  '-lspeexdsp',
+	  	  '-lspeex',
+		  '-lortp',
+		  '-lgsm',
+		  '-lmediastreamer',
+	  ],
+	  'dependencies': [
+#        '<(webrtc_root)/test/test.gyp:test_support',
+#        '<(DEPTH)/testing/gtest.gyp:gtest',
+#        'voice_engine_core',
+         '<(webrtc_root)/system_wrappers/source/system_wrappers.gyp:system_wrappers',
+#        '<(webrtc_root)/test/channel_transport.gyp:channel_transport',
+      ],
+      'sources': [
+        'pstn_serv_handaer/phone_control_base.cc',
+        'pstn_serv_handaer/phone_control_base.h',
+		'pstn_serv_handaer/phone_control_service.cc',
+		'pstn_serv_handaer/phone_control_service.h',
+		'pstn_serv_handaer/phone_mediastream.c',
+		'pstn_serv_handaer/phone_mediastream.h',
+        'pstn_serv_handaer/phone_proxy.cc',
+        'pstn_serv_handaer/phone_proxy.h',
+		'pstn_serv_handaer/phone_readline.cc',
+		'pstn_serv_handaer/phone_timer.cc',
+		'pstn_serv_handaer/phone_timer.h',
+		'pstn_serv_handaer/phone_serv_handaer.cc',
+      ],
+    },
+    
   ],
+
+  
   'conditions': [
     # TODO(kjellander): Support UseoFMFC on VS2010.
     # http://code.google.com/p/webrtc/issues/detail?id=709
