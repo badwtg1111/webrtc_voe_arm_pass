@@ -41,14 +41,10 @@ DEFS_Debug := \
 
 # Flags passed to all source files.
 CFLAGS_Debug := \
-	-fstack-protector \
-	--param=ssp-buffer-size=4 \
 	-pthread \
 	-fno-exceptions \
 	-fno-strict-aliasing \
 	-Wno-unused-parameter \
-	-Wno-missing-field-initializers \
-	-fvisibility=hidden \
 	-pipe \
 	-fPIC \
 	-Wno-format \
@@ -63,8 +59,6 @@ CFLAGS_C_Debug :=
 # Flags passed to only C++ files.
 CFLAGS_CC_Debug := \
 	-fno-rtti \
-	-fno-threadsafe-statics \
-	-fvisibility-inlines-hidden \
 	-Wno-deprecated \
 	-Wno-abi
 
@@ -112,14 +106,10 @@ DEFS_Release := \
 
 # Flags passed to all source files.
 CFLAGS_Release := \
-	-fstack-protector \
-	--param=ssp-buffer-size=4 \
 	-pthread \
 	-fno-exceptions \
 	-fno-strict-aliasing \
 	-Wno-unused-parameter \
-	-Wno-missing-field-initializers \
-	-fvisibility=hidden \
 	-pipe \
 	-fPIC \
 	-Wno-format \
@@ -136,8 +126,6 @@ CFLAGS_C_Release :=
 # Flags passed to only C++ files.
 CFLAGS_CC_Release := \
 	-fno-rtti \
-	-fno-threadsafe-statics \
-	-fvisibility-inlines-hidden \
 	-Wno-deprecated \
 	-Wno-abi
 

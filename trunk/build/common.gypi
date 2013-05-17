@@ -620,7 +620,8 @@
         }], # OS=="linux" and target_arch=="arm" and chromeos==0
 
         ['target_arch=="mipsel"', {
-          'sysroot': '<!(cd <(DEPTH) && pwd -P)/native_client/toolchain/linux_mips-trusted/sysroot',
+#          'sysroot': '<!(cd <(DEPTH) && pwd -P)/native_client/toolchain/linux_mips-trusted/sysroot',
+#          'sysroot': '/root/newdisk1/buildroot-gcc342',
         }],
       ],
 
@@ -2417,8 +2418,8 @@
       # supports it.
       'target_defaults': {
         'cflags': [
-          '-fstack-protector',
-          '--param=ssp-buffer-size=4',
+#          '-fstack-protector',
+#          '--param=ssp-buffer-size=4',
         ],
       },
     }],
@@ -2444,18 +2445,18 @@
           # Don't warn about unused function params.  We use those everywhere.
           '-Wno-unused-parameter',
           # Don't warn about the "struct foo f = {0};" initialization pattern.
-          '-Wno-missing-field-initializers',
+#          '-Wno-missing-field-initializers',
           # Don't export any symbols (for example, to plugins we dlopen()).
           # Note: this is *required* to make some plugins work.
-          '-fvisibility=hidden',
+#          '-fvisibility=hidden',
           '-pipe',
         ],
         'cflags_cc': [
           '-fno-rtti',
-          '-fno-threadsafe-statics',
+#	      '-fno-threadsafe-statics',
           # Make inline functions have hidden visiblity by default.
           # Surprisingly, not covered by -fvisibility=hidden.
-          '-fvisibility-inlines-hidden',
+#          '-fvisibility-inlines-hidden',
           # GCC turns on -Wsign-compare for C++ under -Wall, but clang doesn't,
           # so we specify it explicitly.
           # TODO(fischman): remove this if http://llvm.org/PR10448 obsoletes it.

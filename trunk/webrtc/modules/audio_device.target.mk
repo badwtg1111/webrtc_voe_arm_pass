@@ -37,6 +37,7 @@ DEFS_Debug := \
 	'-DWEBRTC_ARCH_ARM' \
 	'-DWEBRTC_LINUX' \
 	'-DWEBRTC_THREAD_RR' \
+	'-DWEBRTC_CLOCK_TYPE_REALTIME' \
 	'-DLINUX_ALSA' \
 	'-D__STDC_CONSTANT_MACROS' \
 	'-D__STDC_FORMAT_MACROS' \
@@ -46,16 +47,12 @@ DEFS_Debug := \
 
 # Flags passed to all source files.
 CFLAGS_Debug := \
-	-fstack-protector \
-	--param=ssp-buffer-size=4 \
 	-Werror \
 	-pthread \
 	-fno-exceptions \
 	-fno-strict-aliasing \
 	-Wall \
 	-Wno-unused-parameter \
-	-Wno-missing-field-initializers \
-	-fvisibility=hidden \
 	-pipe \
 	-fPIC \
 	-Wextra \
@@ -71,8 +68,6 @@ CFLAGS_C_Debug :=
 # Flags passed to only C++ files.
 CFLAGS_CC_Debug := \
 	-fno-rtti \
-	-fno-threadsafe-statics \
-	-fvisibility-inlines-hidden \
 	-Wsign-compare \
 	-Woverloaded-virtual \
 	-Wno-abi
@@ -127,6 +122,7 @@ DEFS_Release := \
 	'-DWEBRTC_ARCH_ARM' \
 	'-DWEBRTC_LINUX' \
 	'-DWEBRTC_THREAD_RR' \
+	'-DWEBRTC_CLOCK_TYPE_REALTIME' \
 	'-DLINUX_ALSA' \
 	'-D__STDC_CONSTANT_MACROS' \
 	'-D__STDC_FORMAT_MACROS' \
@@ -137,16 +133,12 @@ DEFS_Release := \
 
 # Flags passed to all source files.
 CFLAGS_Release := \
-	-fstack-protector \
-	--param=ssp-buffer-size=4 \
 	-Werror \
 	-pthread \
 	-fno-exceptions \
 	-fno-strict-aliasing \
 	-Wall \
 	-Wno-unused-parameter \
-	-Wno-missing-field-initializers \
-	-fvisibility=hidden \
 	-pipe \
 	-fPIC \
 	-Wextra \
@@ -164,8 +156,6 @@ CFLAGS_C_Release :=
 # Flags passed to only C++ files.
 CFLAGS_CC_Release := \
 	-fno-rtti \
-	-fno-threadsafe-statics \
-	-fvisibility-inlines-hidden \
 	-Wsign-compare \
 	-Woverloaded-virtual \
 	-Wno-abi

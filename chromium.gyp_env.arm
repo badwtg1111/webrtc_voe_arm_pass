@@ -1,0 +1,9 @@
+{
+	'GYP_DEFINES':'include_tests=1 target_arch=arm',  #use space to delimit additional defines.
+	'CC':'arm-linux-gcc',
+	'CXX':'arm-linux-g++',
+	'AR':'arm-linux-ar',
+	'CC_host':'gcc',
+	'CXX_host':'g++',
+	'LD_LIBRARY_PATH':'/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/lib',
+}

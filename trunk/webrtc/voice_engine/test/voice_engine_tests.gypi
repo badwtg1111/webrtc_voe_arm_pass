@@ -252,8 +252,10 @@
       'include_dirs':[
 #		  '/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include/',
 #	  	  '/phone-2.9/include',
+#	  	  '/root/newdisk1/mediastreamer_mipsel/phone/include',
 	  	  '/phone/include',
 	  	  './pstn_serv_handaer',
+	  	  './pstn_serv_handaer/system_wrapper',
 	  ],
 	  'cflags':[
 #		  '--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc',
@@ -265,6 +267,7 @@
 	  ],
 	  'ldflags':[
 #		  '--sysroot=/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc',
+#		  '-L/root/newdisk1/mediastreamer_mipsel/phone/lib', 
 		  '-L/phone/lib', 
 	  ],
 	  'libraries':[
@@ -279,7 +282,7 @@
 #        '<(webrtc_root)/test/test.gyp:test_support',
 #        '<(DEPTH)/testing/gtest.gyp:gtest',
 #        'voice_engine_core',
-         '<(webrtc_root)/system_wrappers/source/system_wrappers.gyp:system_wrappers',
+#         '<(webrtc_root)/system_wrappers/source/system_wrappers.gyp:system_wrappers',
 #        '<(webrtc_root)/test/channel_transport.gyp:channel_transport',
       ],
       'sources': [
@@ -295,6 +298,28 @@
 		'pstn_serv_handaer/phone_timer.cc',
 		'pstn_serv_handaer/phone_timer.h',
 		'pstn_serv_handaer/phone_serv_handaer.cc',
+		
+		'pstn_serv_handaer/system_wrapper/phone_common_types.h',
+		'pstn_serv_handaer/system_wrapper/phone_condition_variable.cc',
+		'pstn_serv_handaer/system_wrapper/phone_condition_variable_posix.cc',
+		'pstn_serv_handaer/system_wrapper/phone_condition_variable_posix.h',
+		'pstn_serv_handaer/system_wrapper/phone_condition_variable_wrapper.h',
+		'pstn_serv_handaer/system_wrapper/phone_critical_section.cc',
+		'pstn_serv_handaer/system_wrapper/phone_critical_section_posix.cc',
+		'pstn_serv_handaer/system_wrapper/phone_critical_section_posix.h',
+		'pstn_serv_handaer/system_wrapper/phone_critical_section_wrapper.h',
+		'pstn_serv_handaer/system_wrapper/phone_event.cc',
+		'pstn_serv_handaer/system_wrapper/phone_event_posix.cc',
+		'pstn_serv_handaer/system_wrapper/phone_event_posix.h',
+		'pstn_serv_handaer/system_wrapper/phone_event_wrapper.h',
+		'pstn_serv_handaer/system_wrapper/phone_sleep.cc',
+		'pstn_serv_handaer/system_wrapper/phone_sleep.h',
+		'pstn_serv_handaer/system_wrapper/phone_thread.cc',
+		'pstn_serv_handaer/system_wrapper/phone_thread_posix.cc',
+		'pstn_serv_handaer/system_wrapper/phone_thread_posix.h',
+		'pstn_serv_handaer/system_wrapper/phone_thread_wrapper.h',
+		'pstn_serv_handaer/system_wrapper/phone_typedefs.h',
+		
       ],
     },
     

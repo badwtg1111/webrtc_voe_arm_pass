@@ -37,6 +37,7 @@ DEFS_Debug := \
 	'-DWEBRTC_ARCH_ARM' \
 	'-DWEBRTC_LINUX' \
 	'-DWEBRTC_THREAD_RR' \
+	'-DWEBRTC_CLOCK_TYPE_REALTIME' \
 	'-D__STDC_CONSTANT_MACROS' \
 	'-D__STDC_FORMAT_MACROS' \
 	'-DDYNAMIC_ANNOTATIONS_ENABLED=1' \
@@ -45,16 +46,12 @@ DEFS_Debug := \
 
 # Flags passed to all source files.
 CFLAGS_Debug := \
-	-fstack-protector \
-	--param=ssp-buffer-size=4 \
 	-Werror \
 	-pthread \
 	-fno-exceptions \
 	-fno-strict-aliasing \
 	-Wall \
 	-Wno-unused-parameter \
-	-Wno-missing-field-initializers \
-	-fvisibility=hidden \
 	-pipe \
 	-fPIC \
 	-Wextra \
@@ -70,8 +67,6 @@ CFLAGS_C_Debug :=
 # Flags passed to only C++ files.
 CFLAGS_CC_Debug := \
 	-fno-rtti \
-	-fno-threadsafe-statics \
-	-fvisibility-inlines-hidden \
 	-Wsign-compare \
 	-Woverloaded-virtual \
 	-Wno-abi
@@ -82,8 +77,7 @@ INCS_Debug := \
 	-I. \
 	-I/phone/include \
 	-Iwebrtc/voice_engine/test/pstn_serv_handaer \
-	-Iwebrtc/system_wrappers/interface \
-	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include
+	-Iwebrtc/voice_engine/test/pstn_serv_handaer/system_wrapper
 
 DEFS_Release := \
 	'-DWEBRTC_SVNREVISION="Unavailable(issue687)"' \
@@ -120,6 +114,7 @@ DEFS_Release := \
 	'-DWEBRTC_ARCH_ARM' \
 	'-DWEBRTC_LINUX' \
 	'-DWEBRTC_THREAD_RR' \
+	'-DWEBRTC_CLOCK_TYPE_REALTIME' \
 	'-D__STDC_CONSTANT_MACROS' \
 	'-D__STDC_FORMAT_MACROS' \
 	'-DNDEBUG' \
@@ -129,16 +124,12 @@ DEFS_Release := \
 
 # Flags passed to all source files.
 CFLAGS_Release := \
-	-fstack-protector \
-	--param=ssp-buffer-size=4 \
 	-Werror \
 	-pthread \
 	-fno-exceptions \
 	-fno-strict-aliasing \
 	-Wall \
 	-Wno-unused-parameter \
-	-Wno-missing-field-initializers \
-	-fvisibility=hidden \
 	-pipe \
 	-fPIC \
 	-Wextra \
@@ -156,8 +147,6 @@ CFLAGS_C_Release :=
 # Flags passed to only C++ files.
 CFLAGS_CC_Release := \
 	-fno-rtti \
-	-fno-threadsafe-statics \
-	-fvisibility-inlines-hidden \
 	-Wsign-compare \
 	-Woverloaded-virtual \
 	-Wno-abi
@@ -168,8 +157,7 @@ INCS_Release := \
 	-I. \
 	-I/phone/include \
 	-Iwebrtc/voice_engine/test/pstn_serv_handaer \
-	-Iwebrtc/system_wrappers/interface \
-	-I/usr/local/arm/4.4.1/arm-none-linux-gnueabi/libc/usr/include
+	-Iwebrtc/voice_engine/test/pstn_serv_handaer/system_wrapper
 
 OBJS := \
 	$(obj).target/$(TARGET)/webrtc/voice_engine/test/pstn_serv_handaer/phone_control_base.o \
@@ -178,13 +166,19 @@ OBJS := \
 	$(obj).target/$(TARGET)/webrtc/voice_engine/test/pstn_serv_handaer/phone_proxy.o \
 	$(obj).target/$(TARGET)/webrtc/voice_engine/test/pstn_serv_handaer/phone_readline.o \
 	$(obj).target/$(TARGET)/webrtc/voice_engine/test/pstn_serv_handaer/phone_timer.o \
-	$(obj).target/$(TARGET)/webrtc/voice_engine/test/pstn_serv_handaer/phone_serv_handaer.o
+	$(obj).target/$(TARGET)/webrtc/voice_engine/test/pstn_serv_handaer/phone_serv_handaer.o \
+	$(obj).target/$(TARGET)/webrtc/voice_engine/test/pstn_serv_handaer/system_wrapper/phone_condition_variable.o \
+	$(obj).target/$(TARGET)/webrtc/voice_engine/test/pstn_serv_handaer/system_wrapper/phone_condition_variable_posix.o \
+	$(obj).target/$(TARGET)/webrtc/voice_engine/test/pstn_serv_handaer/system_wrapper/phone_critical_section.o \
+	$(obj).target/$(TARGET)/webrtc/voice_engine/test/pstn_serv_handaer/system_wrapper/phone_critical_section_posix.o \
+	$(obj).target/$(TARGET)/webrtc/voice_engine/test/pstn_serv_handaer/system_wrapper/phone_event.o \
+	$(obj).target/$(TARGET)/webrtc/voice_engine/test/pstn_serv_handaer/system_wrapper/phone_event_posix.o \
+	$(obj).target/$(TARGET)/webrtc/voice_engine/test/pstn_serv_handaer/system_wrapper/phone_sleep.o \
+	$(obj).target/$(TARGET)/webrtc/voice_engine/test/pstn_serv_handaer/system_wrapper/phone_thread.o \
+	$(obj).target/$(TARGET)/webrtc/voice_engine/test/pstn_serv_handaer/system_wrapper/phone_thread_posix.o
 
 # Add to the list of files we specially track dependencies for.
 all_deps += $(OBJS)
-
-# Make sure our dependencies are built before any of us.
-$(OBJS): | $(obj).target/webrtc/system_wrappers/source/libsystem_wrappers.a
 
 # CFLAGS et al overrides must be target-local.
 # See "Target-specific Variable Values" in the GNU Make manual.
@@ -246,14 +240,13 @@ LIBS := \
 	-lspeex \
 	-lortp \
 	-lgsm \
-	-lmediastreamer \
-	-lrt
+	-lmediastreamer
 
 $(builddir)/phone_serv_handaer: GYP_LDFLAGS := $(LDFLAGS_$(BUILDTYPE))
 $(builddir)/phone_serv_handaer: LIBS := $(LIBS)
-$(builddir)/phone_serv_handaer: LD_INPUTS := $(OBJS) $(obj).target/webrtc/system_wrappers/source/libsystem_wrappers.a
+$(builddir)/phone_serv_handaer: LD_INPUTS := $(OBJS)
 $(builddir)/phone_serv_handaer: TOOLSET := $(TOOLSET)
-$(builddir)/phone_serv_handaer: $(OBJS) $(obj).target/webrtc/system_wrappers/source/libsystem_wrappers.a FORCE_DO_CMD
+$(builddir)/phone_serv_handaer: $(OBJS) FORCE_DO_CMD
 	$(call do_cmd,link)
 
 all_deps += $(builddir)/phone_serv_handaer

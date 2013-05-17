@@ -272,7 +272,7 @@
           'WEBRTC_THREAD_RR',
           # TODO(andrew): can we select this automatically?
           # Define this if the Linux system does not support CLOCK_MONOTONIC.
-          #'WEBRTC_CLOCK_TYPE_REALTIME',
+          'WEBRTC_CLOCK_TYPE_REALTIME',
         ],
       }],
       ['OS=="mac"', {

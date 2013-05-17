@@ -22,7 +22,7 @@
 #include <sys/time.h>
 #include <sys/types.h>
 #include <unistd.h>
-#include "thread_wrapper.h"
+#include "phone_thread_wrapper.h"
 
 
 #include "phone_control_base.h"

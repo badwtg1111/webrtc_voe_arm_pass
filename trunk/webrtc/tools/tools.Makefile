@@ -3,4 +3,4 @@
 export builddir_name ?= trunk/webrtc/tools/out
 .PHONY: all
 all:
-	$(MAKE) -C ../.. command_line_parser frame_editing_lib frame_editor tools_unittests rgba_to_i420_converter video_quality_analysis frame_analyzer psnr_ssim_analyzer
+	$(MAKE) -C ../.. frame_editing_lib command_line_parser frame_editor video_quality_analysis tools_unittests rgba_to_i420_converter psnr_ssim_analyzer frame_analyzer

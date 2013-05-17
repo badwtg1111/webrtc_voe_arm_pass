@@ -26,7 +26,7 @@
 #include "phone_control_service.h"
 #include "phone_timer.h"
 #include "phone_mediastream.h"
-#include "thread_wrapper.h"
+#include "phone_thread_wrapper.h"
 
 using namespace webrtc;
 
@@ -47,7 +47,7 @@ class PhoneProxy{
 			MAX_LEN_PCLI = 512,
 			MAX_EVENTS = 5,
 			EPOLL_TIMEOUT_MS = 30,
-			TIMER_SEC = 10,
+			TIMER_SEC = 1,
 		};
 		
 		enum PstnCommand {
@@ -96,7 +96,7 @@ class PhoneProxy{
 			
 		}PstnCmdIncomingEnum;
 
-		typedef int (*timer_process_cbfn_t)(void *);
+		typedef int (*timer_process_cbfn_t)(void * ,void *);
 
 		typedef struct _timer_info {
 			
@@ -105,7 +105,8 @@ class PhoneProxy{
 			int elapse;    // 0~interval  
 			
 			timer_process_cbfn_t  timer_func_cb;
-			void * timer_func_cb_data;			
+			void * timer_func_cb_data;
+			void * this_obj;
 
 		}timer_info_t;
 		
@@ -127,9 +128,13 @@ class PhoneProxy{
 			int client_fd; // PAD(0), Handset(1~3)
 			char client_ip[PASSWD_LEN];
 
-			timer_info_t * ti;			
+			timer_info_t * ti;
+
+			int old_timer_counter;
 			int timer_counter;
 			int exit_threshold;
+
+			bool timer_setting;
 			
 		}cli_info_t;
 		
@@ -166,8 +171,8 @@ class PhoneProxy{
 		
 
 		int setClientTimer(cli_info_t* cli_info, int interval, 
-							  timer_process_cbfn_t timer_proc, void *arg);
-		static int deleteClientTimer(cli_info_t* cli_info);
+				 timer_process_cbfn_t timer_proc, void *arg, void* pThis);
+		int deleteClientTimer(cli_info_t* cli_info);
 
 		bool phoneProxyInit(int port);
 		bool phoneProxyExit();
@@ -181,10 +186,15 @@ class PhoneProxy{
 
 
 		int max(int a, int b) { return (a > b ? a : b); }
-		
+
+		static void get_current_format_time(char * tstr);
+
 		static void notify( int signum );
-		static int recycleClient(void *arg);
+		static int recycleClient(void *arg, void *pThis);
 		static bool resetTimerInfo();
+		int destroyClient(cli_info_t *pci);
+
+		
 	private:
 		
 		ThreadWrapper* _ptrThreadPhoneProxy;

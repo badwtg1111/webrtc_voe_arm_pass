@@ -1,0 +1,8 @@
+{
+	'GYP_DEFINES':'include_tests=1 target_arch=mipsel',  #use space to delimit additional defines.
+	'CC':'mipsel-linux-gcc',
+	'CXX':'mipsel-linux-g++',
+	'AR':'mipsel-linux-ar',
+	'CC_host':'gcc',
+	'CXX_host':'g++',
+}

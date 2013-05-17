@@ -28,8 +28,10 @@
 #include <errno.h>
 #include <sys/epoll.h>
 #include <assert.h>
-
-#include "thread_wrapper.h"
+#include <time.h>
+#include <signal.h>
+#include <pthread.h>
+#include "phone_thread_wrapper.h"
 
 #include "phone_proxy.h"
 
@@ -168,6 +170,13 @@ int PhoneProxy::accepting_loop(bool yes_no){
 					 << " client_ip = " << ci[i].client_ip
 					 << " client_num = " << i << endl;
 
+				if(ci[i].timer_setting == false){
+					ci[i].timer_setting = true;				
+					ci[i].old_timer_counter = ci[i].timer_counter = 0;
+					ci[i].exit_threshold = 0;
+					setClientTimer(&ci[i], 10, recycleClient, &ci[i], this);
+				}
+
 				int ret;	
 				ret = fcntl(clt_sockfd, F_GETFL, 0);  
 				fcntl(clt_sockfd, F_SETFL, ret | O_NONBLOCK);  
@@ -189,9 +198,6 @@ int PhoneProxy::accepting_loop(bool yes_no){
 		}	
 		for(int i=0; i<CLIENT_NUM; i++){
 			cout << i << " " << ci[i].client_fd << endl;
-
-
-
 		}
 	}
 	
@@ -317,6 +323,11 @@ int PhoneProxy::parseClient(cli_info_t *ci_){
 	cout << __FUNCTION__ << " : " << __LINE__ << endl;
 	cout << "nread : " << nread << endl;
 	if(nread < 0){
+		destroyClient(ci_);
+		return (-1);
+	}
+	if(nread == 0){
+		destroyClient(ci_);
 		return (-1);
 	}
 	
@@ -357,6 +368,10 @@ int PhoneProxy::parseClient(cli_info_t *ci_){
 }
 		
 int PhoneProxy::handleClient(cli_info_t *ci_){
+	if(ci_->client_fd == -1){
+		cout << "the client is exit" << endl;
+		return (-1);
+	}
 	char send_buf[MAX_LEN_PCLI] = {0};
 	cout << __FUNCTION__ << " : " << __LINE__ << endl;
 	switch(_cli_req.cmd){
@@ -366,8 +381,11 @@ int PhoneProxy::handleClient(cli_info_t *ci_){
 			break;
 		case HEARTBEAT:
 			cout << "HEARTBEAT" << endl;
-			ci_->timer_counter ++;
-			 
+			
+			if(ci_->timer_setting == true){
+				ci_->timer_counter ++;
+			}
+			
 			snprintf(send_buf, 22, 
 				"HEADR%c010OPTI_OK000\r\n", _cli_req.id);
 			netWrite(ci_->client_fd, send_buf, strlen(send_buf));
@@ -675,6 +693,8 @@ bool PhoneProxy::phoneProxyThreadFunc(void* pThis){
 }
 
 bool PhoneProxy::phoneProxyThreadProcess(){
+	//cout << __FUNCTION__ << " " << __LINE__ << endl;
+	
 	int nfds;
 	struct epoll_event events[MAX_EVENTS];
 	nfds = epoll_wait(epollfd, events, MAX_EVENTS, EPOLL_TIMEOUT_MS);
@@ -716,7 +736,8 @@ void PhoneProxy::notify( int signum ){
 		if(timer_info_g[i].elapse == 
 		   			timer_info_g[i].interval) {
             timer_info_g[i].elapse = 0;
-            timer_info_g[i].timer_func_cb(timer_info_g[i].timer_func_cb_data);
+            timer_info_g[i].timer_func_cb(timer_info_g[i].timer_func_cb_data,
+				        timer_info_g[i].this_obj);
 		}
 	}
 	
@@ -724,6 +745,9 @@ void PhoneProxy::notify( int signum ){
 }
 
 bool PhoneProxy::heartBeatingThreadProcess(){
+	cout << __FUNCTION__ << " " << __LINE__ << endl;
+
+	
 	timer->setTimer(TIMER_SEC, 0);
 	timer->setHandler(notify);    
 	timer->reset();
@@ -731,23 +755,72 @@ bool PhoneProxy::heartBeatingThreadProcess(){
 	return false;
 }
 
-// arg --> cli_info_t *
-int PhoneProxy::recycleClient(void *arg){
-	if(arg == NULL){
-		return -1;
-	}
-	
-	cli_info_t * cli_info_ = (cli_info_t *)arg;
-	cout << "client_fd" << cli_info_->client_fd << endl;
+void PhoneProxy::get_current_format_time(char * tstr) {
+	time_t t;
+	t = time(NULL);
+	strcpy(tstr, ctime(&t));
+	tstr[strlen(tstr)-1] = '\0'; // replace '\n' with '\0'
+	return;
+}
 
-	deleteClientTimer(cli_info_);
-	memset(cli_info_->client_ip, 0, sizeof(cli_info_->client_ip));
-	close(cli_info_->client_fd);
+
+
+int PhoneProxy::destroyClient(cli_info_t *pci){
+	cout << __FUNCTION__ << " " << __LINE__ << endl;
+	if(pci->timer_setting){
+		deleteClientTimer(pci);
+		pci->timer_setting = false;
+	}
+	//int epollfd_tmp = getEpollFd();
+	if(epoll_ctl(epollfd, EPOLL_CTL_DEL, pci->client_fd, NULL)) {
+		perror("epoll_ctl_del : ");
+		return (-1);
+	}
+	netWrite(pci->client_fd, "You will be not online\n", 23);
+	close(pci->client_fd);
+	
+	memset(pci, 0, sizeof(cli_info_t));
+	pci->client_fd = -1;
+	pci->id = -1;
+
+	for(int i=0; i<CLIENT_NUM; i++){
+		cout << i << " " << ci[i].client_fd << endl;
+	}
+
 	return 0;
 }
 
-int PhoneProxy::setClientTimer(cli_info_t* cli_info, 
-			int interval, timer_process_cbfn_t timer_proc, void *arg) {
+
+// arg --> cli_info_t *
+int PhoneProxy::recycleClient(void *arg, void *pThis){
+	if(arg == NULL){
+		return -1;
+	}
+	PhoneProxy *ppx = static_cast<PhoneProxy*>(pThis);
+	cli_info_t * cli_info_ = (cli_info_t *)arg;
+	cout << "client_fd " << cli_info_->client_fd << endl;
+
+	char tstr[200];
+	get_current_format_time(tstr);
+	cout << __FUNCTION__ << " " << tstr << endl;
+	cout << "cli_info_->old_timer_counter " << cli_info_->old_timer_counter
+	 << endl << "cli_info_->timer_counter " << cli_info_->timer_counter
+	 << endl << "cli_info_->exit_threshold " << cli_info_->exit_threshold 
+	 << endl;
+	if(cli_info_->old_timer_counter == cli_info_->timer_counter){
+		cli_info_->exit_threshold ++;
+	}else{
+		cli_info_->exit_threshold  = 0;
+		cli_info_->old_timer_counter = cli_info_->timer_counter;
+	}
+	if(cli_info_->exit_threshold > 4){
+		ppx->destroyClient(cli_info_);		
+	}
+	return 0;
+}
+
+int PhoneProxy::setClientTimer(cli_info_t* cli_info, int interval, 
+			timer_process_cbfn_t timer_proc, void *arg, void* pThis) {
 	if (timer_proc == NULL || interval <= 0) {
 		return(-1);
 	}
@@ -764,6 +837,7 @@ int PhoneProxy::setClientTimer(cli_info_t* cli_info,
 		if(arg != NULL) {			
 	        timer_info_g[i].timer_func_cb_data = arg;
 		}
+		timer_info_g[i].this_obj = pThis;
 	    timer_info_g[i].interval = interval;
 	    timer_info_g[i].elapse = 0;
 	    timer_info_g[i].in_use = 1;
@@ -781,6 +855,7 @@ int PhoneProxy::setClientTimer(cli_info_t* cli_info,
 
 
 int PhoneProxy::deleteClientTimer(cli_info_t* cli_info) {
+	cout << __FUNCTION__ << " " << __LINE__ << endl;
 
 	if(cli_info->ti == NULL){
 		return -1;
@@ -826,7 +901,17 @@ bool PhoneProxy::phoneProxyInit(int port){
 	timer = new PhoneTimer(TIMER_SEC, 0);
 	startHeartBeating();
 	startPhoneProxy();
-	
+
+#if 0
+	sigset_t signal_set;
+	sigemptyset(&signal_set);
+	sigaddset(&signal_set, SIGALRM);
+	int status = pthread_sigmask(SIG_BLOCK, &signal_set, NULL);
+	if(status != 0){
+		perror("set signal mask : ");
+	}
+#endif
+
 	return true;
 }
 bool PhoneProxy::phoneProxyExit(){
